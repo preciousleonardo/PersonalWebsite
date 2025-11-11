@@ -1,30 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Precious  Leonardo's Personal Website</title>
+<title>Introduction to Computing Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* Main font and background */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #ffe6f0; /* Light pink */
+    margin: 0;
+}
+
+/* Navbar styling */
+.w3-bar {
+    background-color: rgba(255, 182, 193, 0.9); /* semi-transparent pink */
+}
+
+/* Navbar links styling */
+.w3-bar-item.w3-button {
+    color: #333;
+}
+.w3-bar-item.w3-button:hover {
+    background-color: #ffb6c1; /* light pink hover */
+    color: #000;
+}
+
+/* Dropdown content */
+.w3-dropdown-content a {
+    color: #333 !important;
+}
+.w3-dropdown-content a:hover {
+    background-color: #ffc0cb; /* slightly darker pink */
+    color: #000 !important;
+}
+
+/* Slide display */
+.mySlides { display: none; }
+
+/* Section content */
+.w3-container h2, .w3-container h3, .w3-container h4 {
+    color: #800020; /* dark red for headings for contrast */
+}
+</style>
 </head>
 <body>
 
-    <h1>Welcome to My Website!</h1>
-    <p>Hello! My name is Precious Leonardo.</p>
-    <p>I am a student learning how to make web pages using HTML, CSS, and JavaScript.</p>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+   
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">Input Examples<i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="add2numbers.html" class="w3-bar-item w3-button">Add 2 numbers</a>
+        <a href="add2numbersVersion2.html" class="w3-bar-item w3-button">Add 2 numbers (automatic version)</a>
+        <a href="gradecomputation.html" class="w3-bar-item w3-button">Compute Grade</a>
+        <a href="#" class="w3-bar-item w3-button">Fahrenheit to Celsius</a>
+        <a href="#" class="w3-bar-item w3-button">Meters to Feet</a>
+        <a href="#" class="w3-bar-item w3-button">Simple Payroll</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h2>About Me</h2>
-    <p>I am a First Year BS Computer Science student at Ateneo De Davao University. I enjoy learning, mathematics, and problem-solving, hence why I chose this course.</p>
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-hide w3-top" style="margin-top:46px; background-color: rgba(255,182,193,0.9);">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">The Course</a>
+</div>
 
-    <h2>My Projects</h2>
-    <p>Click below to see my programs:</p>
-    <ul>
-        <li><a href="conversion.html">Conversion Program</a></li>
-        <li><a href="income-tax.html">Income Tax Calculator</a></li>
-        <li><a href="looping.html">Looping Exercises</a></li>
-        <li><a href="payroll.html">Payroll System</a></li>
-    </ul>
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-    <h2>Contact</h2>
-    <p>You can reach me at: <b>pleonardo@addu.edu.ph</b></p>
+  <!-- Assignments Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">CS 1130 - Introduction to Computing</h2>
+    <br>
+    <h2>Student Assignments:</h2>
+    <br>
+    <h3>Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</h3>
+    <h3>Assignment #2 - Income Tax Calculator </h3>
+    <h3>Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</h3>
+    <h3>Assignment #4 - Simple Payroll </h3>
+    <br>
+    <h2>*** All Assignments are Due on December 6, 2023 *** </h2>
+    <h4>Upload and launch the pages in your specified GitHub or W3Spaces website.</h4>
+  </div>
 
-    <p>© 2025 Precious Leonardo</p>
+</div>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+// Toggle menu on small screens
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) { x.className += " w3-show"; } 
+  else { x.className = x.className.replace(" w3-show", ""); }
+}
+
+// Close modal if user clicks outside (optional)
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) { modal.style.display = "none"; }
+}
+</script>
 
 </body>
 </html>
