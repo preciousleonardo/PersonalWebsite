@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion Program</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Main styling */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #ffe6f0; /* light pink */
+            margin: 0;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #800020;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+        }
+
+        input[type=number] {
+            padding: 8px;
+            margin: 5px 0;
+            width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #ffb6c1;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ff99b6;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        hr {
+            margin: 40px 0;
+            border: 1px solid #ffb6c1;
+        }
+
+        .navbar {
+            background-color: rgba(255,182,193,0.9);
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: #ffb6c1;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="../index.html">HOME</a>
+    <a href="index.html">CONVERSION</a>
+</div>
+
+<div class="container">
+    <h1>Conversion Program</h1>
+    <p>Convert Celsius ↔ Fahrenheit and Meters ↔ Feet</p>
+
+    <!-- Temperature conversions -->
+    <h3>Celsius ↔ Fahrenheit</h3>
+    <input type="number" id="tempInput" placeholder="Enter value">
+    <br>
+    <button onclick="convertCtoF()">Celsius → Fahrenheit</button>
+    <button onclick="convertFtoC()">Fahrenheit → Celsius</button>
+    <p id="tempResult" class="result"></p>
+
+    <hr>
+
+    <!-- Distance conversions -->
+    <h3>Meters ↔ Feet</h3>
+    <input type="number" id="distInput" placeholder="Enter value">
+    <br>
+    <button onclick="convertMtoF()">Meters → Feet</button>
+    <button onclick="convertFtoM()">Feet → Meters</button>
+    <p id="distResult" class="result"></p>
+</div>
+
+<script>
+    // Temperature conversions
+    function convertCtoF() {
+        let c = parseFloat(document.getElementById("tempInput").value);
+        if (!isNaN(c)) {
+            let f = (c * 9/5) + 32;
+            document.getElementById("tempResult").innerText = `${c}°C = ${f.toFixed(2)}°F`;
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+
+    function convertFtoC() {
+        let f = parseFloat(document.getElementById("tempInput").value);
+        if (!isNaN(f)) {
+            let c = (f - 32) * 5/9;
+            document.getElementById("tempResult").innerText = `${f}°F = ${c.toFixed(2)}°C`;
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+
+    // Distance conversions
+    function convertMtoF() {
+        let m = parseFloat(document.getElementById("distInput").value);
+        if (!isNaN(m)) {
+            let ft = m * 3.28084;
+            document.getElementById("distResult").innerText = `${m} meters = ${ft.toFixed(2)} feet`;
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+
+    function convertFtoM() {
+        let ft = parseFloat(document.getElementById("distInput").value);
+        if (!isNaN(ft)) {
+            let m = ft / 3.28084;
+            document.getElementById("distResult").innerText = `${ft} feet = ${m.toFixed(2)} meters`;
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+</script>
+
+</body>
+</html>
