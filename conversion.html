@@ -10,7 +10,7 @@
         /* Main font and background */
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #ffe6f0; /* Light pink background */
+            background-color: #ffe6f0; /* Light pink */
             margin: 0;
         }
 
@@ -68,68 +68,60 @@
 <div class="w3-content" style="max-width:800px;margin-top:80px;" class="w3-container w3-center">
 
     <h1>Conversion Program</h1>
-    <p>Convert Celsius ↔ Fahrenheit and Meters ↔ Feet</p>
+    <p>Convert between Celsius ↔ Fahrenheit and Meters ↔ Feet</p>
 
-    <!-- Celsius to Fahrenheit -->
-    <h3>Celsius to Fahrenheit</h3>
-    <input type="number" id="celsius" placeholder="°C">
+    <!-- Celsius ↔ Fahrenheit -->
+    <h3>Celsius ↔ Fahrenheit</h3>
+    <input type="number" id="tempInput" placeholder="Enter value">
     <br>
-    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertCtoF()">Convert to Fahrenheit</button>
-    <p id="resultC" class="result"></p>
+    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertCtoF()">Celsius → Fahrenheit</button>
+    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertFtoC()">Fahrenheit → Celsius</button>
+    <p id="tempResult" class="result"></p>
 
-    <!-- Fahrenheit to Celsius -->
-    <h3>Fahrenheit to Celsius</h3>
-    <input type="number" id="fahrenheit" placeholder="°F">
-    <br>
-    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertFtoC()">Convert to Celsius</button>
-    <p id="resultF" class="result"></p>
+    <hr>
 
-    <!-- Meters to Feet -->
-    <h3>Meters to Feet</h3>
-    <input type="number" id="meters" placeholder="Meters">
+    <!-- Meters ↔ Feet -->
+    <h3>Meters ↔ Feet</h3>
+    <input type="number" id="distInput" placeholder="Enter value">
     <br>
-    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertMtoF()">Convert to Feet</button>
-    <p id="resultM" class="result"></p>
-
-    <!-- Feet to Meters -->
-    <h3>Feet to Meters</h3>
-    <input type="number" id="feet" placeholder="Feet">
-    <br>
-    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertFtoM()">Convert to Meters</button>
-    <p id="resultFt" class="result"></p>
+    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertMtoF()">Meters → Feet</button>
+    <button class="w3-button w3-pink w3-hover-deep-purple" onclick="convertFtoM()">Feet → Meters</button>
+    <p id="distResult" class="result"></p>
 
 </div>
 
 <script>
+    // Temperature conversions
     function convertCtoF() {
-        let c = parseFloat(document.getElementById("celsius").value);
+        let c = parseFloat(document.getElementById("tempInput").value);
         if (!isNaN(c)) {
             let f = (c * 9/5) + 32;
-            document.getElementById("resultC").innerText = `${c}°C = ${f.toFixed(2)}°F`;
+            document.getElementById("tempResult").innerText = `${c}°C = ${f.toFixed(2)}°F`;
         } else { alert("Please enter a valid number."); }
     }
 
     function convertFtoC() {
-        let f = parseFloat(document.getElementById("fahrenheit").value);
+        let f = parseFloat(document.getElementById("tempInput").value);
         if (!isNaN(f)) {
             let c = (f - 32) * 5/9;
-            document.getElementById("resultF").innerText = `${f}°F = ${c.toFixed(2)}°C`;
+            document.getElementById("tempResult").innerText = `${f}°F = ${c.toFixed(2)}°C`;
         } else { alert("Please enter a valid number."); }
     }
 
+    // Distance conversions
     function convertMtoF() {
-        let m = parseFloat(document.getElementById("meters").value);
+        let m = parseFloat(document.getElementById("distInput").value);
         if (!isNaN(m)) {
             let ft = m * 3.28084;
-            document.getElementById("resultM").innerText = `${m} meters = ${ft.toFixed(2)} feet`;
+            document.getElementById("distResult").innerText = `${m} meters = ${ft.toFixed(2)} feet`;
         } else { alert("Please enter a valid number."); }
     }
 
     function convertFtoM() {
-        let ft = parseFloat(document.getElementById("feet").value);
+        let ft = parseFloat(document.getElementById("distInput").value);
         if (!isNaN(ft)) {
             let m = ft / 3.28084;
-            document.getElementById("resultFt").innerText = `${ft} feet = ${m.toFixed(2)} meters`;
+            document.getElementById("distResult").innerText = `${ft} feet = ${m.toFixed(2)} meters`;
         } else { alert("Please enter a valid number."); }
     }
 </script>
