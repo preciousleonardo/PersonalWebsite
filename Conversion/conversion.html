@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion Program</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="../index.html">HOME</a>
+    <a href="index.html">CONVERSION</a>
+</div>
+
+<div class="container">
+    <h1>Conversion Program</h1>
+    <p>Convert Celsius ↔ Fahrenheit and Meters ↔ Feet</p>
+
+    <!-- Temperature -->
+    <h3>Celsius ↔ Fahrenheit</h3>
+    <input type="number" id="tempInput" placeholder="Enter value">
+    <br>
+    <button onclick="convertCtoF()">Celsius → Fahrenheit</button>
+    <button onclick="convertFtoC()">Fahrenheit → Celsius</button>
+    <p id="tempResult" class="result"></p>
+
+    <hr>
+
+    <!-- Distance -->
+    <h3>Meters ↔ Feet</h3>
+    <input type="number" id="distInput" placeholder="Enter value">
+    <br>
+    <button onclick="convertMtoF()">Meters → Feet</button>
+    <button onclick="convertFtoM()">Feet → Meters</button>
+    <p id="distResult" class="result"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
