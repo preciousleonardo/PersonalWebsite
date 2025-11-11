@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion Program</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-container">
+
+    <h1>Conversion Program</h1>
+    <p>Convert Celsius to Fahrenheit and vice versa.</p>
+
+    <label>Celsius: </label>
+    <input type="number" id="celsius" placeholder="°C">
+    <button class="w3-button w3-blue" onclick="convertCtoF()">Convert to Fahrenheit</button>
+    <p id="celsiusResult"></p>
+
+    <br>
+
+    <label>Fahrenheit: </label>
+    <input type="number" id="fahrenheit" placeholder="°F">
+    <button class="w3-button w3-green" onclick="convertFtoC()">Convert to Celsius</button>
+    <p id="fahrenheitResult"></p>
+
+    <script>
+        function convertCtoF() {
+            let c = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(c)) {
+                let f = (c * 9/5) + 32;
+                document.getElementById("celsiusResult").innerText = c + "°C = " + f.toFixed(2) + "°F";
+            } else { alert("Enter a valid number."); }
+        }
+
+        function convertFtoC() {
+            let f = parseFloat(document.getElementById("fahrenheit").value);
+            if (!isNaN(f)) {
+                let c = (f - 32) * 5/9;
+                document.getElementById("fahrenheitResult").innerText = f + "°F = " + c.toFixed(2) + "°C";
+            } else { alert("Enter a valid number."); }
+        }
+    </script>
+
+</body>
+</html>
