@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Google Font: Press Start 2P -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Poppins', sans-serif;
             background-color: #ffe6f0; /* Light pink */
             margin: 0;
             padding: 0;
@@ -41,7 +41,7 @@
 
         label {
             display: block;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
@@ -51,6 +51,7 @@
             margin-bottom: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-family: 'Poppins', sans-serif;
         }
 
         button {
@@ -59,10 +60,12 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 14px;
             color: #000;
             transition: 0.3s;
             width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
         }
 
         button:hover {
@@ -71,5 +74,89 @@
 
         .result {
             margin-top: 10px;
-            font-weight: bold;
-            text-align: ce
+            font-weight: 700;
+            text-align: center;
+            color: #800020;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+
+        <!-- Celsius to Fahrenheit -->
+        <div class="converter">
+            <label for="celsius">Celsius to Fahrenheit:</label>
+            <input type="number" id="celsius" placeholder="Enter Celsius">
+            <button onclick="convertCtoF()">Convert</button>
+            <div class="result" id="cToFResult"></div>
+        </div>
+
+        <!-- Fahrenheit to Celsius -->
+        <div class="converter">
+            <label for="fahrenheit">Fahrenheit to Celsius:</label>
+            <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
+            <button onclick="convertFtoC()">Convert</button>
+            <div class="result" id="fToCResult"></div>
+        </div>
+
+        <!-- Meters to Feet -->
+        <div class="converter">
+            <label for="meters">Meters to Feet:</label>
+            <input type="number" id="meters" placeholder="Enter Meters">
+            <button onclick="convertMtoF()">Convert</button>
+            <div class="result" id="mToFResult"></div>
+        </div>
+
+        <!-- Feet to Meters -->
+        <div class="converter">
+            <label for="feet">Feet to Meters:</label>
+            <input type="number" id="feet" placeholder="Enter Feet">
+            <button onclick="convertFtoM()">Convert</button>
+            <div class="result" id="fToMResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function convertCtoF() {
+            let c = parseFloat(document.getElementById("celsius").value);
+            if (isNaN(c)) {
+                document.getElementById("cToFResult").innerText = "Please enter a valid number.";
+                return;
+            }
+            let f = (c * 9/5) + 32;
+            document.getElementById("cToFResult").innerText = c + "°C = " + f.toFixed(2) + "°F";
+        }
+
+        function convertFtoC() {
+            let f = parseFloat(document.getElementById("fahrenheit").value);
+            if (isNaN(f)) {
+                document.getElementById("fToCResult").innerText = "Please enter a valid number.";
+                return;
+            }
+            let c = (f - 32) * 5/9;
+            document.getElementById("fToCResult").innerText = f + "°F = " + c.toFixed(2) + "°C";
+        }
+
+        function convertMtoF() {
+            let m = parseFloat(document.getElementById("meters").value);
+            if (isNaN(m)) {
+                document.getElementById("mToFResult").innerText = "Please enter a valid number.";
+                return;
+            }
+            let ft = m * 3.28084;
+            document.getElementById("mToFResult").innerText = m + " meters = " + ft.toFixed(2) + " feet";
+        }
+
+        function convertFtoM() {
+            let ft = parseFloat(document.getElementById("feet").value);
+            if (isNaN(ft)) {
+                document.getElementById("fToMResult").innerText = "Please enter a valid number.";
+                return;
+            }
+            let m = ft / 3.28084;
+            document.getElementById("fToMResult").innerText = ft + " feet = " + m.toFixed(2) + " meters";
+        }
+    </script>
+</body>
+</html>
