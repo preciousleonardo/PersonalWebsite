@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <title>Introduction to Computing Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Google Fonts: Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
         body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #ffe6f0; /* Light pink */
+            font-family: 'Quicksand', sans-serif;
+            background-color: #cceeff; /* Light blue */
             margin: 0;
         }
 
         /* Navbar styling */
         .w3-bar {
-            background-color: rgba(255, 182, 193, 0.9);
+            background-color: rgba(204, 238, 255, 0.9);
         }
         .w3-bar-item.w3-button {
             color: #333;
         }
         .w3-bar-item.w3-button:hover {
-            background-color: #ffb6c1;
+            background-color: #99ddff;
             color: #000;
         }
 
@@ -30,16 +35,13 @@
             color: #333 !important;
         }
         .w3-dropdown-content a:hover {
-            background-color: #ffc0cb;
+            background-color: #99ddff;
             color: #000 !important;
         }
 
-        /* Slide display */
-        .mySlides { display: none; }
-
         /* Section content */
         .w3-container h2, .w3-container h3, .w3-container h4 {
-            color: #800020;
+            color: #004466; /* Dark blue for headings */
         }
 
         /* Project links as buttons */
@@ -47,13 +49,13 @@
             display: block;
             margin: 10px 0;
             padding: 10px;
-            background-color: #ffb6c1;
+            background-color: #99ddff;
             color: #000;
             text-decoration: none;
             border-radius: 5px;
         }
         .project-link:hover {
-            background-color: #ff99b6;
+            background-color: #66ccff;
         }
     </style>
 </head>
@@ -66,7 +68,7 @@
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button">Projects <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="unit-converter" class="w3-bar-item w3-button">Conversion Program</a>
+        <a href="unit-converter.html" class="w3-bar-item w3-button">Conversion Program</a>
         <a href="income-tax/index.html" class="w3-bar-item w3-button">Income Tax Calculator</a>
         <a href="looping/index.html" class="w3-bar-item w3-button">Looping Exercises</a>
         <a href="payroll/index.html" class="w3-bar-item w3-button">Payroll System</a>
@@ -76,7 +78,7 @@
 </div>
 
 <!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-hide w3-top" style="margin-top:46px; background-color: rgba(255,182,193,0.9);">
+<div id="navDemo" class="w3-bar-block w3-hide w3-top" style="margin-top:46px; background-color: rgba(204, 238, 255, 0.9);">
   <a href="#assignments" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Assignments</a>
 </div>
 
@@ -92,7 +94,7 @@
 
     <h3>Assignment 1 - Conversion</h3>
     <p>Includes Celsius ↔ Fahrenheit and Meters ↔ Feet</p>
-    <a href="projects/conversion.html" class="project-link">Go to Conversion Program</a>
+    <a href="unit-converter.html" class="project-link">Go to Conversion Program</a>
 
     <h3>Assignment 2 - Income Tax Calculator</h3>
     <a href="income-tax/index.html" class="project-link">Go to Income Tax Calculator</a>
@@ -113,8 +115,11 @@
 <script>
 function myFunction() {
   var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) { x.className += " w3-show"; } 
-  else { x.className = x.className.replace(" w3-show", ""); }
+  if (x.className.indexOf("w3-show") == -1) { 
+    x.className += " w3-show"; 
+  } else { 
+    x.className = x.className.replace(" w3-show", ""); 
+  }
 }
 </script>
 
