@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Looping Exercises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #fff0f5;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #800020;
+            margin-bottom: 30px;
+        }
+
+        .exercise {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ffb6c1;
+            border-radius: 10px;
+            background-color: #ffe6ea;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button {
+            background-color: #ffb6c1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #000;
+            transition: 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        button:hover {
+            background-color: #ff99aa;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: 700;
+            text-align: center;
+            color: #800020;
+        }
+
+        .back-home {
+            display: block;
+            margin: 20px auto 0 auto;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #ffb6c1;
+            color: #000;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            background-color: #ff99aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Looping Exercises</h1>
+
+        <!-- Factorial (While Loop) -->
+        <div class="exercise">
+            <label for="factorial">Enter a number to calculate Factorial:</label>
+            <input type="number" id="factorial" placeholder="Enter a positive integer">
+            <button onclick="calculateFactorial()">Calculate Factorial</button>
+            <div class="result" id="factorialResult"></div>
+        </div>
+
+        <!-- Sum (Do While Loop) -->
+        <div class="exercise">
+            <label for="sumN">Enter a number N to calculate Sum of first N natural numbers:</label>
+            <input type="number" id="sumN" placeholder="Enter a positive integer">
+            <button onclick="calculateSum()">Calculate Sum</button>
+            <div class="result" id="sumResult"></div>
+        </div>
+
+        <!-- Average (For Loop) -->
+        <div class="exercise">
+            <label for="averageCount">Enter the number of values to calculate Average:</label>
+            <input type="number" id="averageCount" placeholder="Enter a positive integer">
+            <label for="averageValues">Enter the values separated by commas:</label>
+            <input type="text" id="averageValues" placeholder="e.g., 5,10,15">
+            <button onclick="calculateAverage()">Calculate Average</button>
+            <div class="result" id="averageResult"></div>
+        </div>
+
+        <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+
+    <script>
+        function calculateFactorial() {
+            let n = parseInt(document.getElementById("factorial").value);
+            if (isNaN(n) || n < 0) {
+                document.getElementById("factorialResult").innerText = "Please enter a valid positive integer.";
+                return;
+            }
+            let fact = 1;
+            let i = 1;
+            while (i <= n) {
+                fact *= i;
+                i++;
+            }
+            document.getElementById("factorialResult").innerText = `${n}! = ${fact}`;
+        }
+
+        function calculateSum() {
+            let n = parseInt(document.getElementById("sumN").value);
+            if (isNaN(n) || n < 1) {
+                document.getElementById("sumResult").innerText = "Please enter a valid positive integer.";
+                return;
+            }
+            let sum = 0;
+            let i = 1;
+            do {
+                sum += i;
+                i++;
+            } while (i <= n);
+            document.getElementById("sumResult").innerText = `Sum of first ${n} natural numbers = ${sum}`;
+        }
+
+        function calculateAverage() {
+            let count = parseInt(document.getElementById("averageCount").value);
+            let values = document.getElementById("averageValues").value.split(',').map(Number);
+            if (isNaN(count) || count < 1 || values.length !== count || values.some(isNaN)) {
+                document.getElementById("averageResult").innerText = "Please enter valid numbers and match the count.";
+                return;
+            }
+            let sum = 0;
+            for (let i = 0; i < count; i++) {
+                sum += values[i];
+            }
+            let avg = sum / count;
+            document.getElementById("averageResult").innerText = `Average = ${avg.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
