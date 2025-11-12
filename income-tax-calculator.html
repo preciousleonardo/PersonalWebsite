@@ -11,13 +11,13 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #ffe6f0; /* Light pink */
+            background-color: #ffe6f0;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             background-color: #fff0f5;
             margin: 50px auto;
             padding: 30px;
@@ -27,8 +27,31 @@
 
         h1 {
             text-align: center;
-            color: #800020; /* Dark red */
+            color: #800020;
             margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #ffe6ea;
+        }
+
+        th, td {
+            border: 1px solid #ffb6c1;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffb6c1;
+            color: #000;
+            font-weight: 700;
+        }
+
+        td {
+            font-weight: 500;
         }
 
         .calculator {
@@ -79,18 +102,17 @@
             color: #800020;
         }
 
-        /* Consistent Back to Home button */
         .back-home {
             display: block;
             margin: 20px auto 0 auto;
             padding: 10px;
-            background-color: #ffb6c1;
-            color: #000;
+            width: 200px;
             text-align: center;
             text-decoration: none;
+            background-color: #ffb6c1;
+            color: #000;
             border-radius: 5px;
             font-weight: 700;
-            width: 50%;
             transition: 0.3s;
         }
 
@@ -103,14 +125,35 @@
     <div class="container">
         <h1>Income Tax Calculator</h1>
 
+        <!-- Tax Brackets Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Over</th>
+                    <th>But Not Over</th>
+                    <th>Rate</th>
+                    <th>Sample Taxable Income</th>
+                    <th>Sample Income Tax</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0.00</td><td>P250,000</td><td>0%</td><td>P180,000</td><td>0.00</td></tr>
+                <tr><td>P250,000</td><td>P400,000</td><td>20% of the excess over P250,000</td><td>P320,000</td><td>P14,000</td></tr>
+                <tr><td>P400,000</td><td>P800,000</td><td>P30,000 + 25% of the excess over P400,000</td><td>P520,000</td><td>P60,000</td></tr>
+                <tr><td>P800,000</td><td>P2,000,000</td><td>P130,000 + 30% of the excess over P800,000</td><td>P930,000</td><td>P169,000</td></tr>
+                <tr><td>P2,000,000</td><td>P8,000,000</td><td>P490,000 + 32% of the excess over P2,000,000</td><td>P2,400,000</td><td>P618,000</td></tr>
+                <tr><td>P8,000,000</td><td>-</td><td>P2,410,000 + 35% of the excess over P8,000,000</td><td>P10,000,000</td><td>P3,110,000</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Calculator -->
         <div class="calculator">
-            <label for="income">Enter Annual Income:</label>
-            <input type="number" id="income" placeholder="Enter income in PHP">
+            <label for="income">Enter Taxable Income (PHP):</label>
+            <input type="number" id="income" placeholder="Enter your income">
             <button onclick="calculateTax()">Calculate Tax</button>
             <div class="result" id="taxResult"></div>
         </div>
 
-        <!-- Back to Home button -->
         <a href="index.html" class="back-home">Back to Home</a>
     </div>
 
@@ -124,7 +167,6 @@
 
             let tax = 0;
 
-            // Example progressive tax rates (adjust as needed)
             if (income <= 250000) {
                 tax = 0;
             } else if (income <= 400000) {
